@@ -1,0 +1,90 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+header{
+    background-color: #2c2c2c;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 20px;
+
+}
+.rightHeader {
+    display: flex;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+#loginBtn {
+    margin-right: 20px;
+}
+.registerBtn {
+    background-color: #d5ad36;
+    padding: 10px 10px;
+    border-radius: 15px;
+    display: inline-block;
+}
+.registerBtn a{
+    color: black;
+    font-weight: bold;
+}
+.welcomeText, content{
+    margin: 10px 20px;
+}
+h1 {
+    font-size:50px;
+}
+.formContainer {
+    display: flex;
+    justify-content:end;
+    align-items: center;
+    padding: 7px 20px;
+    margin-top: 50px;
+}
+.formContent {
+    margin-right: 30px;
+    text-align: right;
+}
+.formContent button{
+    margin-bottom: 10px;
+}
+.formContent input, button, select{
+    background-color: black;
+    color: white;
+    font-size: 0.8em;
+    padding: 6px;
+    border-radius: 10px;
+    border: 2px solid #2c2c2c;
+}
+#numberBtn{
+    width: 30px;
+    text-align: center;
+}
+#decreaseBtn, #increaseBtn{
+    width: 25px;
+    font-weight: bold;
+}
+#startDate, #endDate{
+    width: 80px;
+}
+#carType {
+    width: 130px;
+}
+#minPrice, #maxPrice{
+    width: 40px;
+}
+.formContent span{
+    font-size: .8em;
+}
+.formContent select::placeholder {
+    color: #2c2c2c;
+}
