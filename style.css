@@ -88,3 +88,50 @@ h1 {
 .formContent select::placeholder {
     color: #2c2c2c;
 }
+.content {
+    display: flex;
+    flex-wrap:wrap;
+    padding: 7px 20px;
+}
+
+.carContainer {
+    background-color: #2c2c2c;
+    border-radius: 20px;
+    border-radius: 10px;
+    width: min-content;
+    margin: 0 20px 20px 0;
+    position: relative;
+}
+.carImgContainer {
+    position: relative;
+}
+.carImg {
+    width: 210px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.carImgContainer span {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.carInfo{
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.carBtn {
+    font-size: 0.7em;
+    margin-left: 5px;
+}
+.carBrand {
+    font-size: 0.9em;
+}
+.carPassengers {
+    font-size: 0.7em;
+    color: rgba(255, 255, 255, 0.5);
+}
