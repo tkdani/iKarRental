@@ -1,9 +1,23 @@
 <?php
-// Read the JSON file
 $carsJson = file_get_contents('cars.json');
 
-// Decode the JSON data into a PHP array
 $cars = json_decode($carsJson, true);
+
+$carType = isset($_POST['carType']) ? $_POST['carType'] : '';
+$passengers = isset($_POST['passengers']) ? (int)$_POST['passengers'] : 0;
+$minPrice = isset($_POST['minPrice']) ? (int)$_POST['minPrice'] : 0;
+$maxPrice = isset($_POST['maxPrice']) ? (int)$_POST['maxPrice'] : 0;
+
+$isFilterApplied = $carType !== '' || $passengers !== 0 || $minPrice !== 0 || $maxPrice !== 0;
+
+$filteredCars = $isFilterApplied ? array_filter($cars, function ($car) use ($carType, $passengers, $minPrice, $maxPrice) {
+    return ($car['transmission'] === $carType || $carType === '')
+        && ($car['passengers'] === $passengers || $passengers === 0)
+        && ($car['daily_price_huf'] >= $minPrice || $minPrice === 0)
+        && ($car['daily_price_huf'] <= $maxPrice || $maxPrice === 0);
+}) : $cars;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,11 +49,11 @@ $cars = json_decode($carsJson, true);
             <a class="register" href="#">Regisztráció</a>
         </div>
     </div>
-    <div class="formContainer">
+    <form method="POST" class="formContainer">
         <div class="formContent">
-            <button id="decreaseBtn">-</button>
-            <input id="numberBtn" type="text" value="0">
-            <button id="increaseBtn">+</button>
+            <button class="passengersBtn" id="decreaseBtn" type="button">-</button>
+            <input id="passengers" type="text" value="0" name="passengers">
+            <button class="passengersBtn" id="increaseBtn" type="button">+</button>
             <span>férőhely</span>
 
             <input type="text" id="startDate" placeholder="2024. 10. 04">
@@ -47,29 +61,28 @@ $cars = json_decode($carsJson, true);
             <input type="text" id="endDate" placeholder="2024. 10. 04">
             <span>-ig</span><br>
 
-            <select id="carType">
+            <select id="carType" name="carType">
                 <option value="" selected disabled>Váltó típusa</option>
-                <option value="manual">Manuális</option>
-                <option value="automata">Automata</option>
+                <option value="Manual">Manuális</option>
+                <option value="Automatic">Automata</option>
             </select>
 
-            <input id="minPrice" type="text" placeholder="14 000">
+            <input id="minPrice" type="text" placeholder="14 000" name="minPrice">
             <span>-</span>
-            <input id="maxPrice" type="text" placeholder="21 000">
+            <input id="maxPrice" type="text" placeholder="21 000" name="maxPrice">
             <span>Ft</span>
         </div>
         <div class="sortBtn">
-            <div class="registerBtn">
-                <a class="register" href="#">Szűrés</a>
-            </div>
+            <button type="submit" class="registerBtn">Szűrés</button>
         </div>
-    </div>
+    </form>
     <div class="content">
-        <?php if (!empty($cars)): ?>
-            <?php foreach ($cars as $car): ?>
+        <?php if (!empty($filteredCars)): ?>
+            <?php foreach ($filteredCars as $car): ?>
                 <div class="carContainer">
+
                     <div class="carImgContainer">
-                        <img class="carImg" src="<?php echo htmlspecialchars($car['image']); ?>">
+                        <img class="carImg" src="<?php echo $car['image']; ?>">
                         <span><?php echo $car['daily_price_huf'] . ' Ft' ?></span>
                     </div>
                     <div class="carInfo">
