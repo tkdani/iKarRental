@@ -82,12 +82,16 @@ $filteredCars = $isFilterApplied ? array_filter($cars, function ($car) use ($car
                 <div class="carContainer">
 
                     <div class="carImgContainer">
-                        <img class="carImg" src="<?php echo $car['image']; ?>">
+                        <a href="car.php?id=<?php echo $car['id']; ?>">
+                            <img class="carImg" src="<?php echo $car['image']; ?>">
+                        </a>
                         <span><?php echo $car['daily_price_huf'] . ' Ft' ?></span>
                     </div>
                     <div class="carInfo">
                         <div>
-                            <p class="carBrand"><?php echo $car['brand'] ?> <b><?php echo $car['model']; ?></b></p>
+                            <a href="car.php?id=<?php echo $car['id']; ?>">
+                                <p class="carBrand"><?php echo $car['brand'] ?> <b><?php echo $car['model']; ?></b></p>
+                            </a>
                             <p class="carPassengers"><?php echo $car['passengers'] . ' férőhely - ' . $car['transmission']; ?></p>
                         </div>
                         <div class="registerBtn carBtn">
@@ -100,8 +104,6 @@ $filteredCars = $isFilterApplied ? array_filter($cars, function ($car) use ($car
             <p>Nincsenek elérhető autók.</p>
         <?php endif; ?>
     </div>
-
-
 
 </body>
 

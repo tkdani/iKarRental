@@ -139,3 +139,84 @@ h1 {
 .passengersBtn {
     color: #2c2c2c;
 }
+.carDesc {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+}
+#carName {
+    text-align: right;
+    font-size: 2.5em;
+}
+.carDetail img {
+    width: 400px;
+    border-radius: 10px;
+}
+.carDetail {
+    display: flex;
+}
+.carDescription {
+    position: relative;
+    padding: 10px 10px;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    color: white;
+    width: 350px;
+    font-weight: bold;
+    font-size: 0.9em;
+    height: 100%;
+    margin-bottom: 10px;
+}
+.carDescription p {
+    margin: 0;
+}
+.flexCol {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    
+}
+.flexBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rentBtn {
+    background-color: #d5ad36;
+    padding: 10px 10px;
+    border-radius: 15px;
+    display: inline-block;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+#rentDateBtn {
+    background-color: #3484ec;
+}
+.topLeft {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.topRight {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5em;
+}
+#nap {
+    font-size: 0.5em;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.7);
+}
